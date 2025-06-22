@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>锦湘工艺 - Minecraft服务器</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Microsoft YaHei', sans-serif;
+        }
+        
+        body {
+            background: url('images/bg1.png') no-repeat center center fixed;
+            background-size: cover;
+            color: white;
+        }
+        
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: #002FA7;
+            opacity: 0.9;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5%;
+            z-index: 1000;
+        }
+        
+        .logo {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .logo h1 {
+            font-size: 24px;
+            color: white;
+        }
+        
+        .logo p {
+            font-size: 12px;
+            color: white;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+        }
+        
+        section {
+            min-height: 100vh;
+            padding: 100px 10% 0;
+        }
+        
+        #home {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+    </style>
+</head>
+<body class="page-transition">
+    <nav class="navbar">
+        <div class="logo">
+            <h1>锦湘工艺</h1>
+            <p>Jinxiang Process</p>
+        </div>
+        <div class="nav-links">
+            <a href="index.html">首页</a>
+            <a href="about.html">关于我们</a>
+            <a href="construction.html">城建进度</a>
+            <a href="punishment.html">处罚公告</a>
+            <a href="join.html">加入我们</a>
+        </div>
+    </nav>
+
+    <section id="home">
+        <h1>欢迎来到锦湘工艺服务器</h1>
+        <p>一个专注于建筑与交通的Minecraft服务器</p>
+    </section>
+
+    <section id="about">
+        <!-- 关于我们内容 -->
+    </section>
+
+    <section id="construction">
+        <!-- 城建进度内容 -->
+    </section>
+
+    <section id="punishment">
+        <!-- 处罚公告内容 -->
+    </section>
+
+    <section id="join">
+        <!-- 加入我们内容 -->
+    </section>
+
+    <script>
+        // 平滑滚动效果
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // 页面加载动画
+        document.addEventListener('DOMContentLoaded', function() {
+            document.body.classList.add('page-transition');
+        });
+    </script>
+</body>
+</html>

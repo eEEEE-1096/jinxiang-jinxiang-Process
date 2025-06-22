@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>处罚公告 - 锦湘工艺</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .announcement-container {
+            background-color: rgba(0, 47, 167, 0.7);
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 30px;
+        }
+        
+        .punishment-item {
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .punishment-item:last-child {
+            border-bottom: none;
+        }
+        
+        .punishment-images {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        
+        .punishment-images img {
+            max-width: 200px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <h1>锦湘工艺</h1>
+            <p>Jinxiang Process</p>
+        </div>
+        <div class="nav-links">
+            <a href="index.html#home">首页</a>
+            <a href="about.html">关于我们</a>
+            <a href="construction.html">城建进度</a>
+            <a href="#">处罚公告</a>
+            <a href="index.html#join">加入我们</a>
+        </div>
+    </nav>
+
+    <section id="punishment">
+        <h1>处罚公告</h1>
+        <div class="announcement-container">
+            <!-- 公告将通过配置文件动态加载 -->
+        </div>
+    </section>
+
+    <script src="config.js"></script>
+    <script>
+        // 动态加载处罚公告
+        function loadPunishmentData() {
+            const container = document.querySelector('.announcement-container');
+            container.innerHTML = '';
+            
+            punishmentData.forEach(item => {
+                let imagesHTML = '';
+                if (item.images && item.images.length > 0) {
+                    imagesHTML = `<div class="punishment-images">`;
+                    item.images.forEach(img => {
+                        imagesHTML += `<img src="${img}" alt="处罚证据">`;
+                    });
+                    imagesHTML += `</div>`;
+                }
+                
+                container.innerHTML += `
+                    <div class="punishment-item">
+                        <h3>${item.title}</h3>
+                        <p>玩家: ${item.player}</p>
+                        <p>违规行为: ${item.violation}</p>
+                        <p>处罚措施: ${item.punishment}</p>
+                        <p>处罚时间: ${item.date}</p>
+                        ${imagesHTML}
+                    </div>
+                `;
+            });
+        }
+        
+        window.onload = loadPunishmentData;
+    </script>
+</body>
+</html>

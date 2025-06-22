@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>加入我们 - 锦湘工艺</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .join-container {
+            background-color: rgba(0, 47, 167, 0.7);
+            padding: 30px;
+            border-radius: 10px;
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .qq-group {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 20px 0;
+        }
+        
+        .qq-number {
+            font-size: 24px;
+            margin-right: 15px;
+        }
+        
+        .copy-btn {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .copy-btn:hover {
+            background-color: #45a049;
+        }
+        
+        .copy-message {
+            color: #4CAF50;
+            margin-top: 10px;
+            display: none;
+        }
+    </style>
+</head>
+<body class="page-transition">
+    <nav class="navbar">
+        <div class="logo">
+            <h1>锦湘工艺</h1>
+            <p>Jinxiang Process</p>
+        </div>
+        <div class="nav-links">
+            <a href="index.html#home">首页</a>
+            <a href="about.html">关于我们</a>
+            <a href="construction.html">城建进度</a>
+            <a href="punishment.html">处罚公告</a>
+            <a href="#">加入我们</a>
+        </div>
+    </nav>
+
+    <section id="join">
+        <div class="join-container">
+            <h1>加入锦湘工艺服务器</h1>
+            <p>欢迎加入我们的QQ群，获取服务器最新资讯和交流</p>
+            
+            <div class="qq-group">
+                <div class="qq-number">QQ群: 949043991</div>
+                <button class="copy-btn" onclick="copyQQ()">复制群号</button>
+            </div>
+            
+            <div class="copy-message" id="copyMessage">已复制到剪贴板</div>
+            
+            <p>加入后请遵守群规，文明交流</p>
+        </div>
+    </section>
+
+    <script>
+        // 页面加载动画
+        document.addEventListener('DOMContentLoaded', function() {
+            document.body.classList.add('page-transition');
+        });
+    </script>
+
+    <script>
+        function copyQQ() {
+            const qqNumber = '949043991';
+            navigator.clipboard.writeText(qqNumber).then(() => {
+                const message = document.getElementById('copyMessage');
+                message.style.display = 'block';
+                setTimeout(() => {
+                    message.style.display = 'none';
+                }, 2000);
+            });
+        }
+    </script>
+</body>
+</html>
